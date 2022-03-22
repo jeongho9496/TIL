@@ -11,7 +11,7 @@ function solution(id_list, report, k) {
     const lastID = [];                //신고 당한 사람
     let countNum = [];
     let choiceId = [];              //k(파라미터)번 이상 신고 받은사람
-    const set = new Set(report);    //한사람이 같은 사람 중복 신고 제거
+    const set = new Set(report);    //한사람이 같은 사람 중복 신고 제거 
     const report2 = [...set]; 
     let lastChoiceId = [];          //k번 이상 신고당한 id를 신고한 유저
 
