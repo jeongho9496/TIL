@@ -1,7 +1,9 @@
 function solution(new_id) {
-    var answer = '';
-    let test =  new_id.toLowerCase().replace(/[^\w-._]+/g,"");
-    let test2 = test.replace('..'.repeat( 2 ),'?');
-    console.log(test2)
-    return answer;
+    const answer = new_id .toLowerCase() //1
+            .replace(/[^\w\d-_.]/g, '') //2
+            .replace(/\.{2,}/g, '.')    //3
+            .replace(/^\.|\.$/g, '')    //4
+            .padEnd(1, 'a')             //5
+            .slice(0, 15).replace(/^\.|\.$/g, '') //6
+   return answer.padEnd(3, answer[answer.length-1])//7
 }
