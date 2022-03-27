@@ -59,16 +59,18 @@ console.log(countNum)
 
 function solutiontest(id_list, report, k) { 
     const userInfo = id_list.reduce((result, current) => { 
-        result[current] = [0, []]; 
+        result[current] = [0, []]; // id_list 배열 초기화 작업 0=> 신고당한 ID count, [] => 자신이 신고한 ID
+        console.log(result)
+        console.log(current)
         return result; 
     }, {}); 
-    
+    console.log(userInfo)
     for (const value of new Set(report)) { 
-        const [user, target] = value.split(' '); 
-        userInfo[user][1].push(target); 
-        userInfo[target][0]++; 
+        const [user, target] = value.split(' '); //신고한 ID, 신고당한 ID 분류
+        userInfo[user][1].push(target); // 자신이 신고한 ID 저장
+        userInfo[target][0]++; // 신고당한 횟수 저장
     } 
-    const stops = id_list.filter((id) => userInfo[id][0] >= k); 
+    const stops = id_list.filter((id) => userInfo[id][0] >= k); // 자신의 ID가 K번 만큼 신고 당했는지 확인
     return id_list.map((id) => 
         userInfo[id][1] .filter((id) => stops.includes(id)).length); 
 }
