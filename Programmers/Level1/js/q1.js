@@ -23,7 +23,6 @@ function solution(id_list, report, k) {
     
     for (let i = 0; i < id_list.length; i++) { // 유저 id 만큼 반복
         countNum[i] = lastID.filter(element => id_list[i] === element).length; //각 유저 id당 신고당한 횟수 저장
-console.log(countNum)
         //k번 이상 신고 받은 사람 저장
         if(countNum[i] >= k){
             choiceId.push(id_list[i]);
